@@ -1,0 +1,17 @@
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaEntidad.dll
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaLogica.dll
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaEntidad.pdb
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaLogica.pdb
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaPresentacion\obj\Debug\CapaPresentacion.frmListado.resources
