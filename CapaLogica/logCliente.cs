@@ -83,6 +83,14 @@ namespace CapaLogica
         {
             procCliente.Instancia.InsertarPasaje(Cli);
         }
+        public List<entViaje> ObtenerViajePorId(int idViaje)
+        {
+            return procCliente.Instancia.ObtenerViajePorId(idViaje);
+        }
+        public List<entItinerario> ObtenerItinerarioPorId(int idItinerario)
+        {
+            return procCliente.Instancia.ObtenerItinearioPorId(idItinerario);
+        }
 
         #endregion
 

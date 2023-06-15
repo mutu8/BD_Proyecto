@@ -53,19 +53,26 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-                entPasaje pasaje = new entPasaje();
-                pasaje.tipoPasaje = cboTipoPasaje.SelectedItem.ToString();
-                pasaje.asiento = numericUpDown1.Value.ToString();
-                pasaje.valor = Convert.ToInt32(label8.Text);
-                pasaje.idCliente = Convert.ToInt32(cboClientes.SelectedValue);
-                pasaje.idViaje = Convert.ToInt32(txtViaje.Text);
+            entPasaje pasaje = new entPasaje();
+            pasaje.tipoPasaje = cboTipoPasaje.SelectedItem.ToString();
+            pasaje.asiento = numericUpDown1.Value.ToString();
+            pasaje.valor = Convert.ToInt32(label8.Text);
+            pasaje.idCliente = Convert.ToInt32(cboClientes.SelectedValue);
+            pasaje.idViaje = Convert.ToInt32(txtViaje.Text);
 
-            logCliente.Instancia.insertarPasajes(pasaje);
-
-                MessageBox.Show("Pasaje agregado correctamente.");
-
-            
+            try
+            {
+                logCliente.Instancia.insertarPasajes(pasaje);
+                MessageBox.Show("Pasaje agregado correctamente!!");
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("El asiento está ocupado. Por favor, elija otro asiento." + MessageBoxButtons.OK + MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El asiento está ocupado. Por favor, elija otro asiento." + MessageBoxButtons.OK + MessageBoxIcon.Error);
+            }
 
         }
 
@@ -128,6 +135,20 @@ namespace CapaPresentacion
             this.Hide();
             Menu frm = new Menu();
             frm.Show();
+        }
+
+        private void btnBuscarViajePorID_Click(object sender, EventArgs e)
+        {
+            int idViaje = Convert.ToInt32(txtIDViaje.Text);
+
+            dgvBuscarViaje.DataSource = logCliente.Instancia.ObtenerViajePorId(idViaje);
+        }
+
+        private void btnBuscarItinerario_Click(object sender, EventArgs e)
+        {
+            int idItineario = Convert.ToInt32(txtItinerarioID.Text);
+
+            dgvBuscarItinerario.DataSource = logCliente.Instancia.ObtenerItinerarioPorId(idItineario);
         }
     }
     }

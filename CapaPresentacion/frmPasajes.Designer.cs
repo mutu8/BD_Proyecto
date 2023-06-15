@@ -47,6 +47,7 @@ namespace CapaPresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtViaje = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblvlr = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -58,8 +59,17 @@ namespace CapaPresentacion
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnFiltrarViajes = new System.Windows.Forms.Button();
             this.dgvViajes = new System.Windows.Forms.DataGridView();
-            this.txtViaje = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarViajePorID = new System.Windows.Forms.Button();
+            this.dgvBuscarViaje = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtIDViaje = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtItinerarioID = new System.Windows.Forms.TextBox();
+            this.btnBuscarItinerario = new System.Windows.Forms.Button();
+            this.dgvBuscarItinerario = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItinerario)).BeginInit();
@@ -68,6 +78,10 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasaje)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViajes)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarViaje)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarItinerario)).BeginInit();
             this.SuspendLayout();
             // 
             // Cliente
@@ -99,7 +113,7 @@ namespace CapaPresentacion
             this.groupBox1.Controls.Add(this.cboClientes);
             this.groupBox1.Controls.Add(this.Cliente);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(373, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(405, 136);
             this.groupBox1.TabIndex = 11;
@@ -157,12 +171,12 @@ namespace CapaPresentacion
             this.groupBox2.Controls.Add(this.cboOrigen);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(435, 18);
+            this.groupBox2.Location = new System.Drawing.Point(12, 29);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(355, 253);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Consulta de itinerarios";
+            this.groupBox2.Text = "Selección de itinerarios";
             // 
             // btnFiltrar
             // 
@@ -263,12 +277,19 @@ namespace CapaPresentacion
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox3.Location = new System.Drawing.Point(12, 154);
+            this.groupBox3.Location = new System.Drawing.Point(377, 171);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(405, 207);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del pasaje";
+            // 
+            // txtViaje
+            // 
+            this.txtViaje.Location = new System.Drawing.Point(338, 163);
+            this.txtViaje.Name = "txtViaje";
+            this.txtViaje.Size = new System.Drawing.Size(45, 22);
+            this.txtViaje.TabIndex = 22;
             // 
             // label8
             // 
@@ -333,7 +354,7 @@ namespace CapaPresentacion
             // dgvPasaje
             // 
             this.dgvPasaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPasaje.Location = new System.Drawing.Point(12, 367);
+            this.dgvPasaje.Location = new System.Drawing.Point(377, 384);
             this.dgvPasaje.Name = "dgvPasaje";
             this.dgvPasaje.Size = new System.Drawing.Size(405, 136);
             this.dgvPasaje.TabIndex = 14;
@@ -342,7 +363,7 @@ namespace CapaPresentacion
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnAgregar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAgregar.Location = new System.Drawing.Point(12, 519);
+            this.btnAgregar.Location = new System.Drawing.Point(216, 536);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(405, 38);
             this.btnAgregar.TabIndex = 15;
@@ -357,12 +378,12 @@ namespace CapaPresentacion
             this.groupBox4.Controls.Add(this.cboItinerario);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(435, 278);
+            this.groupBox4.Location = new System.Drawing.Point(12, 288);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(355, 225);
+            this.groupBox4.Size = new System.Drawing.Size(355, 232);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Consulta de viajes";
+            this.groupBox4.Text = "Selección de Itinerario";
             // 
             // btnFiltrarViajes
             // 
@@ -384,18 +405,11 @@ namespace CapaPresentacion
             this.dgvViajes.Size = new System.Drawing.Size(317, 106);
             this.dgvViajes.TabIndex = 15;
             // 
-            // txtViaje
-            // 
-            this.txtViaje.Location = new System.Drawing.Point(338, 163);
-            this.txtViaje.Name = "txtViaje";
-            this.txtViaje.Size = new System.Drawing.Size(45, 22);
-            this.txtViaje.TabIndex = 22;
-            // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnBack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBack.Location = new System.Drawing.Point(435, 519);
+            this.btnBack.Location = new System.Drawing.Point(637, 536);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(359, 38);
             this.btnBack.TabIndex = 18;
@@ -403,11 +417,117 @@ namespace CapaPresentacion
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtIDViaje);
+            this.groupBox5.Controls.Add(this.btnBuscarViajePorID);
+            this.groupBox5.Controls.Add(this.dgvBuscarViaje);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(799, 279);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(355, 241);
+            this.groupBox5.TabIndex = 19;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Consulta de viajes";
+            // 
+            // btnBuscarViajePorID
+            // 
+            this.btnBuscarViajePorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBuscarViajePorID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnBuscarViajePorID.Location = new System.Drawing.Point(18, 69);
+            this.btnBuscarViajePorID.Name = "btnBuscarViajePorID";
+            this.btnBuscarViajePorID.Size = new System.Drawing.Size(317, 38);
+            this.btnBuscarViajePorID.TabIndex = 16;
+            this.btnBuscarViajePorID.Text = "Buscar";
+            this.btnBuscarViajePorID.UseVisualStyleBackColor = true;
+            this.btnBuscarViajePorID.Click += new System.EventHandler(this.btnBuscarViajePorID_Click);
+            // 
+            // dgvBuscarViaje
+            // 
+            this.dgvBuscarViaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBuscarViaje.Location = new System.Drawing.Point(18, 113);
+            this.dgvBuscarViaje.Name = "dgvBuscarViaje";
+            this.dgvBuscarViaje.Size = new System.Drawing.Size(317, 106);
+            this.dgvBuscarViaje.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label9.Location = new System.Drawing.Point(20, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 20);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "ID DEL VIAJE";
+            // 
+            // txtIDViaje
+            // 
+            this.txtIDViaje.Location = new System.Drawing.Point(290, 35);
+            this.txtIDViaje.Name = "txtIDViaje";
+            this.txtIDViaje.Size = new System.Drawing.Size(45, 22);
+            this.txtIDViaje.TabIndex = 23;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.txtItinerarioID);
+            this.groupBox6.Controls.Add(this.btnBuscarItinerario);
+            this.groupBox6.Controls.Add(this.dgvBuscarItinerario);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(799, 29);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(355, 238);
+            this.groupBox6.TabIndex = 20;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Consulta de Itinerario";
+            // 
+            // txtItinerarioID
+            // 
+            this.txtItinerarioID.Location = new System.Drawing.Point(290, 35);
+            this.txtItinerarioID.Name = "txtItinerarioID";
+            this.txtItinerarioID.Size = new System.Drawing.Size(45, 22);
+            this.txtItinerarioID.TabIndex = 23;
+            // 
+            // btnBuscarItinerario
+            // 
+            this.btnBuscarItinerario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBuscarItinerario.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnBuscarItinerario.Location = new System.Drawing.Point(18, 69);
+            this.btnBuscarItinerario.Name = "btnBuscarItinerario";
+            this.btnBuscarItinerario.Size = new System.Drawing.Size(317, 38);
+            this.btnBuscarItinerario.TabIndex = 16;
+            this.btnBuscarItinerario.Text = "Buscar";
+            this.btnBuscarItinerario.UseVisualStyleBackColor = true;
+            this.btnBuscarItinerario.Click += new System.EventHandler(this.btnBuscarItinerario_Click);
+            // 
+            // dgvBuscarItinerario
+            // 
+            this.dgvBuscarItinerario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBuscarItinerario.Location = new System.Drawing.Point(18, 113);
+            this.dgvBuscarItinerario.Name = "dgvBuscarItinerario";
+            this.dgvBuscarItinerario.Size = new System.Drawing.Size(317, 106);
+            this.dgvBuscarItinerario.TabIndex = 15;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(20, 35);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(163, 20);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "ID DEL ITINEARIO";
+            // 
             // dgbItinerarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 569);
+            this.ClientSize = new System.Drawing.Size(1166, 596);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnAgregar);
@@ -415,6 +535,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.dgvPasaje);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "dgbItinerarios";
             this.Text = "frmPasajes";
             this.groupBox1.ResumeLayout(false);
@@ -429,6 +550,12 @@ namespace CapaPresentacion
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViajes)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarViaje)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscarItinerario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -466,5 +593,15 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtViaje;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox txtIDViaje;
+        private System.Windows.Forms.Button btnBuscarViajePorID;
+        private System.Windows.Forms.DataGridView dgvBuscarViaje;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox txtItinerarioID;
+        private System.Windows.Forms.Button btnBuscarItinerario;
+        private System.Windows.Forms.DataGridView dgvBuscarItinerario;
+        private System.Windows.Forms.Label label10;
     }
 }

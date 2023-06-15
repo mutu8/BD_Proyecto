@@ -25,7 +25,6 @@ C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\bin\Debug\CapaEntidad.pdb
 C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\bin\Debug\CapaLogica.pdb
 C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\bin\Debug\CapaDatos.pdb
 C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
-C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\obj\Debug\CapaPresentacion.frmListado.resources
 C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\obj\Debug\CapaPresentacion.frmClientes.resources
 C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\obj\Debug\CapaPresentacion.Menu.resources
 C:\Users\Steven\source\repos\PF_BD\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources

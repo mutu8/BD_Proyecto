@@ -355,6 +355,39 @@ namespace CapaDatos
             }
             return lista;
         }
+        public List<entViaje> ObtenerViajePorId(int idViaje)
+        {
+            entViaje viaje = null;
+            SqlCommand cmd = null;
+            List<entViaje> lista = new List<entViaje>();
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SELECT * FROM Viaje WHERE idViaje = @idViaje", cn);
+                cmd.Parameters.AddWithValue("@idViaje", idViaje);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    viaje = new entViaje();
+                    viaje.idViaje = Convert.ToInt32(reader["idViaje"]);
+                    viaje.capacidad = Convert.ToInt32(reader["capacidad"]);
+                    viaje.idEmpresa = Convert.ToInt32(reader["idEmpresa"]);
+                    viaje.idItinerario = Convert.ToInt32(reader["idItinerario"]);
+                    lista.Add(viaje);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd?.Connection?.Close();
+            }
+            return lista;
+        }
 
 
 
@@ -383,9 +416,8 @@ namespace CapaDatos
                     pasaje.idCliente = Convert.ToInt32(dr["idCliente"]);
                     pasaje.idViaje = Convert.ToInt32(dr["idViaje"]);
                     lista.Add(pasaje);
-                   
+ 
                 }
-
             }
             catch (Exception e)
             {
@@ -439,6 +471,41 @@ namespace CapaDatos
             }
             return lista;
         }
+        public List<entItinerario> ObtenerItinearioPorId(int idItineario)
+        {
+     
+            SqlCommand cmd = null;
+            List<entItinerario> lista = new List<entItinerario>();
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SELECT * FROM Itinerario WHERE idItinerario = @idItinerario", cn);
+                cmd.Parameters.AddWithValue("@idItinerario", idItineario);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    entItinerario Itinerario = new entItinerario();
+                    Itinerario.idItinerario = Convert.ToInt32(dr["idItinerario"]);
+                    Itinerario.hora = Convert.ToDateTime(dr["hora"]);
+                    Itinerario.fecha = Convert.ToDateTime(dr["fecha"]);
+                    Itinerario.idOrigen = Convert.ToInt32(dr["idOrigen"]);
+                    Itinerario.idDestino = Convert.ToInt32(dr["idDestino"]);
+                    lista.Add(Itinerario);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd?.Connection?.Close();
+            }
+            return lista;
+        }
+
         public bool InsertarPasaje(entPasaje pasaje)
         {
             SqlCommand cmd = null;
@@ -446,6 +513,8 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
+                cn.Open();
+
                 cmd = new SqlCommand("spInsertaPasaje", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@tipoPasaje", pasaje.tipoPasaje);
@@ -453,7 +522,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@valor", pasaje.valor);
                 cmd.Parameters.AddWithValue("@idCliente", pasaje.idCliente);
                 cmd.Parameters.AddWithValue("@idViaje", pasaje.idViaje);
-                cn.Open();
+
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
@@ -470,7 +539,7 @@ namespace CapaDatos
             }
             return insertado;
         }
-
+       
 
 
         #endregion
