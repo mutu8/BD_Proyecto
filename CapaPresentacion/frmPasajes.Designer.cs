@@ -32,6 +32,8 @@ namespace CapaPresentacion
             this.Cliente = new System.Windows.Forms.Label();
             this.cboClientes = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbId = new System.Windows.Forms.Label();
+            this.ASFA = new System.Windows.Forms.Label();
             this.cboEmpresa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -43,9 +45,11 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.cboItinerario = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cboViajes = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblvlr = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.cboTipoPasaje = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,17 +58,16 @@ namespace CapaPresentacion
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnFiltrarViajes = new System.Windows.Forms.Button();
             this.dgvViajes = new System.Windows.Forms.DataGridView();
-            this.ASFA = new System.Windows.Forms.Label();
-            this.lbId = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtViaje = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItinerario)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasaje)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViajes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // Cliente
@@ -81,10 +84,11 @@ namespace CapaPresentacion
             // cboClientes
             // 
             this.cboClientes.FormattingEnabled = true;
-            this.cboClientes.Location = new System.Drawing.Point(139, 38);
+            this.cboClientes.Location = new System.Drawing.Point(194, 36);
             this.cboClientes.Name = "cboClientes";
             this.cboClientes.Size = new System.Drawing.Size(189, 24);
             this.cboClientes.TabIndex = 10;
+            this.cboClientes.SelectedValueChanged += new System.EventHandler(this.cboClientes_SelectedValueChanged);
             // 
             // groupBox1
             // 
@@ -102,10 +106,32 @@ namespace CapaPresentacion
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos ";
             // 
+            // lbId
+            // 
+            this.lbId.AutoSize = true;
+            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lbId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbId.Location = new System.Drawing.Point(159, 91);
+            this.lbId.Name = "lbId";
+            this.lbId.Size = new System.Drawing.Size(29, 20);
+            this.lbId.TabIndex = 14;
+            this.lbId.Text = "__";
+            // 
+            // ASFA
+            // 
+            this.ASFA.AutoSize = true;
+            this.ASFA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.ASFA.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ASFA.Location = new System.Drawing.Point(130, 91);
+            this.ASFA.Name = "ASFA";
+            this.ASFA.Size = new System.Drawing.Size(28, 20);
+            this.ASFA.TabIndex = 13;
+            this.ASFA.Text = "id:";
+            // 
             // cboEmpresa
             // 
             this.cboEmpresa.FormattingEnabled = true;
-            this.cboEmpresa.Location = new System.Drawing.Point(139, 89);
+            this.cboEmpresa.Location = new System.Drawing.Point(194, 91);
             this.cboEmpresa.Name = "cboEmpresa";
             this.cboEmpresa.Size = new System.Drawing.Size(189, 24);
             this.cboEmpresa.TabIndex = 12;
@@ -155,7 +181,7 @@ namespace CapaPresentacion
             this.dgvItinerario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItinerario.Location = new System.Drawing.Point(21, 157);
             this.dgvItinerario.Name = "dgvItinerario";
-            this.dgvItinerario.Size = new System.Drawing.Size(317, 72);
+            this.dgvItinerario.Size = new System.Drawing.Size(317, 81);
             this.dgvItinerario.TabIndex = 15;
             // 
             // cboDestino
@@ -215,20 +241,12 @@ namespace CapaPresentacion
             this.label4.TabIndex = 13;
             this.label4.Text = "Itinerario";
             // 
-            // cboViajes
-            // 
-            this.cboViajes.FormattingEnabled = true;
-            this.cboViajes.Location = new System.Drawing.Point(149, 124);
-            this.cboViajes.Name = "cboViajes";
-            this.cboViajes.Size = new System.Drawing.Size(189, 24);
-            this.cboViajes.TabIndex = 16;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(17, 122);
+            this.label5.Location = new System.Drawing.Point(18, 163);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 15;
@@ -236,27 +254,59 @@ namespace CapaPresentacion
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtViaje);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.lblvlr);
             this.groupBox3.Controls.Add(this.numericUpDown1);
             this.groupBox3.Controls.Add(this.cboTipoPasaje);
-            this.groupBox3.Controls.Add(this.cboViajes);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupBox3.Location = new System.Drawing.Point(12, 154);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(405, 165);
+            this.groupBox3.Size = new System.Drawing.Size(405, 207);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del pasaje";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label8.Location = new System.Drawing.Point(334, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 20);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "____";
+            // 
+            // lblvlr
+            // 
+            this.lblvlr.AutoSize = true;
+            this.lblvlr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblvlr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblvlr.Location = new System.Drawing.Point(18, 124);
+            this.lblvlr.Name = "lblvlr";
+            this.lblvlr.Size = new System.Drawing.Size(59, 20);
+            this.lblvlr.TabIndex = 20;
+            this.lblvlr.Text = "Precio";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(194, 80);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(189, 22);
+            this.numericUpDown1.TabIndex = 19;
+            // 
             // cboTipoPasaje
             // 
             this.cboTipoPasaje.FormattingEnabled = true;
-            this.cboTipoPasaje.Location = new System.Drawing.Point(149, 33);
+            this.cboTipoPasaje.Location = new System.Drawing.Point(194, 31);
             this.cboTipoPasaje.Name = "cboTipoPasaje";
             this.cboTipoPasaje.Size = new System.Drawing.Size(189, 24);
             this.cboTipoPasaje.TabIndex = 18;
+            this.cboTipoPasaje.SelectedIndexChanged += new System.EventHandler(this.cboTipoPasaje_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -283,18 +333,18 @@ namespace CapaPresentacion
             // dgvPasaje
             // 
             this.dgvPasaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPasaje.Location = new System.Drawing.Point(12, 346);
+            this.dgvPasaje.Location = new System.Drawing.Point(12, 367);
             this.dgvPasaje.Name = "dgvPasaje";
-            this.dgvPasaje.Size = new System.Drawing.Size(405, 168);
+            this.dgvPasaje.Size = new System.Drawing.Size(405, 136);
             this.dgvPasaje.TabIndex = 14;
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnAgregar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAgregar.Location = new System.Drawing.Point(33, 531);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 519);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(355, 38);
+            this.btnAgregar.Size = new System.Drawing.Size(405, 38);
             this.btnAgregar.TabIndex = 15;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -309,7 +359,7 @@ namespace CapaPresentacion
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(435, 278);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(355, 206);
+            this.groupBox4.Size = new System.Drawing.Size(355, 225);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Consulta de viajes";
@@ -331,43 +381,34 @@ namespace CapaPresentacion
             this.dgvViajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViajes.Location = new System.Drawing.Point(18, 113);
             this.dgvViajes.Name = "dgvViajes";
-            this.dgvViajes.Size = new System.Drawing.Size(317, 72);
+            this.dgvViajes.Size = new System.Drawing.Size(317, 106);
             this.dgvViajes.TabIndex = 15;
             // 
-            // ASFA
+            // txtViaje
             // 
-            this.ASFA.AutoSize = true;
-            this.ASFA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.ASFA.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ASFA.Location = new System.Drawing.Point(334, 93);
-            this.ASFA.Name = "ASFA";
-            this.ASFA.Size = new System.Drawing.Size(28, 20);
-            this.ASFA.TabIndex = 13;
-            this.ASFA.Text = "id:";
+            this.txtViaje.Location = new System.Drawing.Point(338, 163);
+            this.txtViaje.Name = "txtViaje";
+            this.txtViaje.Size = new System.Drawing.Size(45, 22);
+            this.txtViaje.TabIndex = 22;
             // 
-            // lbId
+            // btnBack
             // 
-            this.lbId.AutoSize = true;
-            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lbId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbId.Location = new System.Drawing.Point(363, 93);
-            this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(29, 20);
-            this.lbId.TabIndex = 14;
-            this.lbId.Text = "__";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(149, 81);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(189, 22);
-            this.numericUpDown1.TabIndex = 19;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnBack.Location = new System.Drawing.Point(435, 519);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(359, 38);
+            this.btnBack.TabIndex = 18;
+            this.btnBack.Text = "Volver";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // dgbItinerarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 596);
+            this.ClientSize = new System.Drawing.Size(806, 569);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox2);
@@ -383,11 +424,11 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvItinerario)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasaje)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViajes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,7 +447,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboItinerario;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cboViajes;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cboTipoPasaje;
@@ -422,5 +462,9 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Label ASFA;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label lblvlr;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtViaje;
+        private System.Windows.Forms.Button btnBack;
     }
 }

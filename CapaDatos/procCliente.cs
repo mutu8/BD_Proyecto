@@ -358,6 +358,8 @@ namespace CapaDatos
 
 
 
+
+
         ////////////////////listado de Pasaje
         public List<entPasaje> ListaPasaje()
         {
@@ -395,6 +397,80 @@ namespace CapaDatos
             }
             return lista;
         }
+        //Listado por cliente
+        public List<entPasaje> ListaPasajeFiltradoPorCliente(int idCliente)
+        {
+            SqlCommand cmd = null;
+            List<entPasaje> lista = new List<entPasaje>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar(); // singleton
+                cmd = new SqlCommand("ObtenerPasajesPorCliente", cn); // Nombre del procedimiento almacenado
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregar los parámetros
+                cmd.Parameters.AddWithValue("@idCliente", idCliente);
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entPasaje pasaje = new entPasaje();
+                    pasaje.idPasasje = Convert.ToInt32(dr["idPasaje"]); ;
+                    pasaje.tipoPasaje = dr["tipoPasaje"].ToString();
+                    pasaje.asiento = dr["asiento"].ToString();
+                    pasaje.valor = Convert.ToInt32(dr["valor"]);
+                    pasaje.idCliente = Convert.ToInt32(dr["idCliente"]);
+                    pasaje.idViaje = Convert.ToInt32(dr["idViaje"]);
+                    lista.Add(pasaje);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+            return lista;
+        }
+        public bool InsertarPasaje(entPasaje pasaje)
+        {
+            SqlCommand cmd = null;
+            bool insertado = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertaPasaje", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@tipoPasaje", pasaje.tipoPasaje);
+                cmd.Parameters.AddWithValue("@asiento", pasaje.asiento);
+                cmd.Parameters.AddWithValue("@valor", pasaje.valor);
+                cmd.Parameters.AddWithValue("@idCliente", pasaje.idCliente);
+                cmd.Parameters.AddWithValue("@idViaje", pasaje.idViaje);
+                cn.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    insertado = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd?.Connection?.Close();
+            }
+            return insertado;
+        }
+
 
 
         #endregion

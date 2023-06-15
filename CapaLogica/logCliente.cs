@@ -75,6 +75,15 @@ namespace CapaLogica
         {
             return procCliente.Instancia.ListaPasaje();
         }
+        public List<entPasaje> listaPasajePorCliente(int idCliente)
+        {
+            return procCliente.Instancia.ListaPasajeFiltradoPorCliente(idCliente);
+        }
+        public void insertarPasajes(entPasaje Cli)
+        {
+            procCliente.Instancia.InsertarPasaje(Cli);
+        }
+
         #endregion
 
     }
