@@ -62,6 +62,37 @@ namespace CapaDatos
             return lista;
         }
 
+        /////////////////////////InsertaCliente
+        public Boolean InsertarCliente(entCliente Cli)
+        {
+            SqlCommand cmd = null;
+            Boolean inserta = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertaCliente", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", Cli.nombre);
+                cmd.Parameters.AddWithValue("@dni", Cli.dni);
+                cmd.Parameters.AddWithValue("@edad", Cli.edad);
+                cmd.Parameters.AddWithValue("@telefono", Cli.telefono);
+                cmd.Parameters.AddWithValue("@email", Cli.email);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inserta = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return inserta;
+        }
+
+
         ////////////////////listado de Empresa
         public List<entEmpresa> ListaEmpresa()
         {
@@ -74,17 +105,17 @@ namespace CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
-                int i = 1;
+               
                 while (dr.Read())
                 {
                     entEmpresa emp = new entEmpresa();
-                    emp.idEmpresa = i;
+                    emp.idEmpresa = Convert.ToInt32(dr["idEmpresa"]); ;
                     emp.nombre = dr["nombre"].ToString();
                     emp.direccion = dr["direccion"].ToString();
                     emp.telefono = Convert.ToInt32(dr["telefono"]);
           
                     lista.Add(emp);
-                    i++;
+                    
                 }
 
             }
@@ -178,17 +209,17 @@ namespace CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
-                int i=1;
+           
                 while (dr.Read())
                 {
                     entItinerario Itinerario = new entItinerario();
-                    Itinerario.idItinerario = i;
+                    Itinerario.idItinerario = Convert.ToInt32(dr["idItinerario"]);
                     Itinerario.hora = Convert.ToDateTime(dr["hora"]);
                     Itinerario.fecha = Convert.ToDateTime(dr["fecha"]);
                     Itinerario.idOrigen = Convert.ToInt32(dr["idOrigen"]);
                     Itinerario.idDestino = Convert.ToInt32(dr["idDestino"]);
                     lista.Add(Itinerario);
-                    i++;
+                 
                 }
 
             }
@@ -202,6 +233,52 @@ namespace CapaDatos
             }
             return lista;
         }
+
+        //Listado de Itinerarios por filtro
+        public List<entItinerario> ListaItinerarioFiltrado(int idOrigen, int idDestino)
+        {
+            SqlCommand cmd = null;
+            List<entItinerario> lista = new List<entItinerario>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar(); //singleton
+                cmd = new SqlCommand("spListaItinerarioFiltrado", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregar los parámetros
+                cmd.Parameters.AddWithValue("@idOrigen", idOrigen);
+                cmd.Parameters.AddWithValue("@idDestino", idDestino);
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+    
+                while (dr.Read())
+                {
+                    entItinerario Itinerario = new entItinerario();
+                    Itinerario.idItinerario = Convert.ToInt32(dr["idItinerario"]);
+                    Itinerario.hora = Convert.ToDateTime(dr["hora"]);
+                    Itinerario.fecha = Convert.ToDateTime(dr["fecha"]);
+                    Itinerario.idOrigen = Convert.ToInt32(dr["idOrigen"]);
+                    Itinerario.idDestino = Convert.ToInt32(dr["idDestino"]);
+                    lista.Add(Itinerario);
+                    
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+            return lista;
+        }
+
 
         ////////////////////listado de Viaje
         public List<entViaje> ListaViaje()
@@ -219,9 +296,8 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     entViaje viaje = new entViaje();
-                    viaje.idViaje = i;
+                    viaje.idViaje = Convert.ToInt32(dr["idViaje"]); ;
                     viaje.capacidad = Convert.ToInt32(dr["capacidad"]);
-                    viaje.numViaje = Convert.ToInt32(dr["numViaje"]);
                     viaje.idEmpresa = Convert.ToInt32(dr["idEmpresa"]);
                     viaje.idItinerario = Convert.ToInt32(dr["idItinerario"]);
                     lista.Add(viaje);
@@ -239,6 +315,47 @@ namespace CapaDatos
             }
             return lista;
         }
+        ////////////////////listado de Viaje Filtrado
+        public List<entViaje> ListaViajeFiltrado(int idItinerario)
+        {
+            SqlCommand cmd = null;
+            List<entViaje> lista = new List<entViaje>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar(); //singleton
+                cmd = new SqlCommand("spListaViajeFiltrado", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregar los parámetros
+                cmd.Parameters.AddWithValue("@idItineario", idItinerario);
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entViaje viaje = new entViaje();
+                    viaje.idViaje = Convert.ToInt32(dr["idViaje"]);
+                    viaje.capacidad = Convert.ToInt32(dr["capacidad"]);
+                    viaje.idEmpresa = Convert.ToInt32(dr["idEmpresa"]);
+                    viaje.idItinerario = Convert.ToInt32(dr["idItinerario"]);
+                    lista.Add(viaje);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+            return lista;
+        }
+
 
 
         ////////////////////listado de Pasaje
@@ -253,18 +370,18 @@ namespace CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
-                int i = 1;
+              
                 while (dr.Read())
                 {
                     entPasaje pasaje = new entPasaje();
-                    pasaje.idPasasje = i;
+                    pasaje.idPasasje = Convert.ToInt32(dr["idPasaje"]); ;
                     pasaje.tipoPasaje = dr["tipoPasaje"].ToString();
                     pasaje.asiento = dr["asiento"].ToString();
                     pasaje.valor = Convert.ToInt32(dr["valor"]);
                     pasaje.idCliente = Convert.ToInt32(dr["idCliente"]);
                     pasaje.idViaje = Convert.ToInt32(dr["idViaje"]);
                     lista.Add(pasaje);
-                    i++;
+                   
                 }
 
             }

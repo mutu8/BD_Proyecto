@@ -44,6 +44,7 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrigen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDestino)).BeginInit();
@@ -132,10 +133,18 @@ namespace CapaPresentacion
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmListado
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -180,6 +189,7 @@ namespace CapaPresentacion
         protected internal System.Windows.Forms.Label label3;
         protected internal System.Windows.Forms.Label label4;
         protected internal System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
 

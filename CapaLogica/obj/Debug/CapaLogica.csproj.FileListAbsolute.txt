@@ -9,3 +9,14 @@ C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaLogica\obj\Debug\CapaLogica.csproj
 C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaLogica\obj\Debug\CapaLogica.csproj.CopyComplete
 C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaLogica\obj\Debug\CapaLogica.dll
 C:\Users\Steven\source\repos\PF_BD_AVANCE\CapaLogica\obj\Debug\CapaLogica.pdb
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\bin\Debug\CapaLogica.dll
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\bin\Debug\CapaDatos.dll
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\bin\Debug\CapaEntidad.dll
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\bin\Debug\CapaDatos.pdb
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\bin\Debug\CapaEntidad.pdb
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\obj\Debug\CapaLogica.csproj.AssemblyReference.cache
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\obj\Debug\CapaLogica.csproj.CoreCompileInputs.cache
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\obj\Debug\CapaLogica.csproj.CopyComplete
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\obj\Debug\CapaLogica.dll
+C:\Users\Steven\source\repos\PF_BD\CapaLogica\obj\Debug\CapaLogica.pdb

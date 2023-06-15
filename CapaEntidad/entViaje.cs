@@ -10,7 +10,6 @@ namespace CapaEntidad
     {
         public int idViaje { get; set; }
         public int capacidad { get; set; }
-        public int numViaje { get; set; }
         public int idEmpresa { get; set; }
         public int idItinerario { get; set; }
 

@@ -60,6 +60,11 @@ namespace CapaPresentacion
             dgvPasaje.DataSource = logCliente.Instancia.listaPasaje();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu frm = new Menu();
+            frm.Show();
+        }
     }
 }

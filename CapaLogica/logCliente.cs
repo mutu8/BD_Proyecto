@@ -35,6 +35,12 @@ namespace CapaLogica
             return procCliente.Instancia.ListarCliente();
         }
 
+        public void InsertaCliente(entCliente Cli)
+        {
+            procCliente.Instancia.InsertarCliente(Cli);
+        }
+
+
         public List<entOrigen> listaOrigen()
         {
             return procCliente.Instancia.ListarOrigen();
@@ -48,7 +54,10 @@ namespace CapaLogica
         {
             return procCliente.Instancia.ListaItinerario();
         }
-
+        public List<entItinerario> listaItinerarioFiltrado(int idOrigen, int idDestino)
+        {
+            return procCliente.Instancia.ListaItinerarioFiltrado(idOrigen,idDestino);
+        }
         public List<entEmpresa> listaEmpresa()
         {
             return procCliente.Instancia.ListaEmpresa();
@@ -57,6 +66,10 @@ namespace CapaLogica
         public List<entViaje> listaViaje()
         {
             return procCliente.Instancia.ListaViaje();
+        }
+        public List<entViaje> listaViajeFiltrado(int idItinerario)
+        {
+            return procCliente.Instancia.ListaViajeFiltrado(idItinerario);
         }
         public List<entPasaje> listaPasaje()
         {
